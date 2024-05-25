@@ -11,8 +11,7 @@ function calculate() {
     let num1Str = document.getElementById('num1').value;
     let num2Str = document.getElementById('num2').value;
     let operator = document.getElementById('operator').value;
-    let resToDecimal = document.getElementById('Resultat_Decimal');
-
+    let decimalResultField = document.getElementById('decimal-result');
     // Get the error message and result fields
     let errorMessage = document.getElementById('error-message');
     let resultField = document.getElementById('result');
@@ -20,6 +19,7 @@ function calculate() {
     // Clear previous error message
     errorMessage.textContent = '';
     resultField.value = '';
+    decimalResultField.value = '';
 
     // Check if the input strings are valid binary numbers
     if (!isValidBinary(num1Str) || !isValidBinary(num2Str)) {
@@ -39,24 +39,31 @@ function calculate() {
 
     // Perform the calculation based on the operator
     let result;
+    let decimalResult;
     switch (operator) {
         case '+':
-            result = (num1 + num2).toString(2);
+            decimalResult = (num1 + num2);
+            result = decimalResult.toString(2);
             break;
         case '-':
-            result = (num1 - num2).toString(2);
+            decimalResult = (num1 - num2);
+            result = decimalResult.toString(2);
             break;
         case '*':
-            result = (num1 * num2).toString(2);
+            decimalResult = (num1 * num2);
+            result = decimalResult.toString(2);
             break;
         case '/':
-            result = (num1 / num2).toString(2);
+            decimalResult = (num1 / num2);
+            result = decimalResult.toString(2);
             break;
         default:
+
             errorMessage.textContent = 'Opérateur non valide.';
             return;
     }
 
     // Display the result
     resultField.value = result;
+    decimalResultField.value = decimalResult;
 }
