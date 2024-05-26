@@ -21,6 +21,7 @@ function calculate() {
     resultField.value = '';
     decimalResultField.value = '';
 
+
     // Check if the input strings are valid binary numbers
     if (!isValidBinary(num1Str) || !isValidBinary(num2Str)) {
         errorMessage.textContent = 'Veuillez entrer des nombres binaires valides.';
